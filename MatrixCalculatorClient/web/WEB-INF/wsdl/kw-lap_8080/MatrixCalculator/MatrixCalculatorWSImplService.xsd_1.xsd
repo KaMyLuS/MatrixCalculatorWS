@@ -1,0 +1,190 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.1-b419 (branches/2.3.1.x-7937; 2014-08-04T08:11:03+0000) JAXWS-RI/2.2.10-b140803.1500 JAXWS-API/2.2.11 JAXB-RI/2.2.10-b140802.1033 JAXB-API/2.2.12-b140109.1041 svn-revision#unknown. --><xs:schema xmlns:tns="http://ws.matrix.pl/" xmlns:ns1="http://jaxb.dev.java.net/array" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://ws.matrix.pl/">
+
+<xs:import namespace="http://jaxb.dev.java.net/array" schemaLocation="http://kw-lap:8080/MatrixCalculator/MatrixCalculatorWSImplService?xsd=2"/>
+
+<xs:element name="addMatrices" type="tns:addMatrices"/>
+
+<xs:element name="addMatricesResponse" type="tns:addMatricesResponse"/>
+
+<xs:element name="calculateDeterminant" type="tns:calculateDeterminant"/>
+
+<xs:element name="calculateDeterminantResponse" type="tns:calculateDeterminantResponse"/>
+
+<xs:element name="calculateEigenValues" type="tns:calculateEigenValues"/>
+
+<xs:element name="calculateEigenValuesResponse" type="tns:calculateEigenValuesResponse"/>
+
+<xs:element name="calculateLUDecomposition" type="tns:calculateLUDecomposition"/>
+
+<xs:element name="calculateLUDecompositionResponse" type="tns:calculateLUDecompositionResponse"/>
+
+<xs:element name="calculateTrace" type="tns:calculateTrace"/>
+
+<xs:element name="calculateTraceResponse" type="tns:calculateTraceResponse"/>
+
+<xs:element name="multiplyByScalar" type="tns:multiplyByScalar"/>
+
+<xs:element name="multiplyByScalarResponse" type="tns:multiplyByScalarResponse"/>
+
+<xs:element name="multiplyMatrices" type="tns:multiplyMatrices"/>
+
+<xs:element name="multiplyMatricesResponse" type="tns:multiplyMatricesResponse"/>
+
+<xs:element name="sampleMatrix" type="tns:sampleMatrix"/>
+
+<xs:element name="sampleMatrixResponse" type="tns:sampleMatrixResponse"/>
+
+<xs:element name="solveLinearEquation" type="tns:solveLinearEquation"/>
+
+<xs:element name="solveLinearEquationResponse" type="tns:solveLinearEquationResponse"/>
+
+<xs:element name="transformToTriangularUpperMatrix" type="tns:transformToTriangularUpperMatrix"/>
+
+<xs:element name="transformToTriangularUpperMatrixResponse" type="tns:transformToTriangularUpperMatrixResponse"/>
+
+<xs:element name="transposeMatrix" type="tns:transposeMatrix"/>
+
+<xs:element name="transposeMatrixResponse" type="tns:transposeMatrixResponse"/>
+
+<xs:complexType name="calculateDeterminant">
+<xs:sequence>
+<xs:element name="arg0" type="tns:matrix" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="matrix">
+<xs:sequence>
+<xs:element name="data" type="ns1:doubleArray" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="calculateDeterminantResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:double"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="transformToTriangularUpperMatrix">
+<xs:sequence>
+<xs:element name="arg0" type="tns:matrix" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="transformToTriangularUpperMatrixResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:matrix" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="multiplyByScalar">
+<xs:sequence>
+<xs:element name="arg0" type="tns:matrix" minOccurs="0"/>
+<xs:element name="arg1" type="xs:double"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="multiplyByScalarResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:matrix" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="calculateEigenValues">
+<xs:sequence>
+<xs:element name="arg0" type="tns:matrix" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="calculateEigenValuesResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:double" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="multiplyMatrices">
+<xs:sequence>
+<xs:element name="arg0" type="tns:matrix" minOccurs="0"/>
+<xs:element name="arg1" type="tns:matrix" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="multiplyMatricesResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:matrix" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="calculateLUDecomposition">
+<xs:sequence>
+<xs:element name="arg0" type="tns:matrix" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="calculateLUDecompositionResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:matrix" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="calculateTrace">
+<xs:sequence>
+<xs:element name="arg0" type="tns:matrix" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="calculateTraceResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:double"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="addMatrices">
+<xs:sequence>
+<xs:element name="arg0" type="tns:matrix" minOccurs="0"/>
+<xs:element name="arg1" type="tns:matrix" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="addMatricesResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:matrix" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="solveLinearEquation">
+<xs:sequence>
+<xs:element name="arg0" type="tns:matrix" minOccurs="0"/>
+<xs:element name="arg1" type="tns:matrix" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="solveLinearEquationResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:matrix" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="transposeMatrix">
+<xs:sequence>
+<xs:element name="arg0" type="tns:matrix" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="transposeMatrixResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:matrix" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="sampleMatrix">
+<xs:sequence>
+<xs:element name="arg0" type="xs:double"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="sampleMatrixResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:matrix" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

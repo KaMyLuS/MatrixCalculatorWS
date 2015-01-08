@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>MatrixCalcWS Demo</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>MatrixCalculatorWebService Demo</h1>
+        <hr />
+        <p>Macierze należy wprowadzać wiersz po wierszu (każdy w nowej linii).
+        Poszczególne elementy należy oddzielać średnikiem.</p>
+        <p>Przykład:<br />
+            1; 2.5<br />
+            6.78; -2.34<br />
+        </p>
+        <hr />
+        
+        <form action="MatrixCalculatorServlet" method="POST">
+            <h1>Dodawanie macierzy</h1>
+            <p>Wprowadź dwie macierze o takich samych wymiarach:</p>
+            
+            <input type="hidden" name="operationType" value="addMatrices" />
+            <textarea name="a" rows="6"></textarea>
+            <textarea name="b" rows="6"></textarea>
+            <br /><br />
+            <input type="submit" value="Dodaj" />
+        </form>
+        <hr />
+                
+        <form action="MatrixCalculatorServlet" method="POST">
+            <h1>Mnożenie macierzy</h1>
+            <p>Wprowadź dwie macierze o wymiarach odpowiednio (NxM) i (MxP):</p>
+            
+            <input type="hidden" name="operationType" value="multiplyMatrices" />
+            <textarea name="a" rows="6"></textarea>
+            <textarea name="b" rows="6"></textarea>
+            <br /><br />
+            <input type="submit" value="Pomnóż" />
+        </form>
+        <hr />
+        
+        <form action="MatrixCalculatorServlet" method="POST">
+            <h1>Mnożenie macierzy przez skalar</h1>
+            
+            <input type="hidden" name="operationType" value="multiplyByScalar" />
+            <p>Wprowadź macierz:</p>
+            <textarea name="a" rows="6"></textarea>
+            <p>oraz skalar:</p>
+            <input type="text" name="b" />
+            <br /><br />
+            <input type="submit" value="Pomnóż" />
+        </form>
+        <hr />
+        
+        <form action="MatrixCalculatorServlet" method="POST">
+            <h1>Obliczanie wyznacznika</h1>
+            
+            <input type="hidden" name="operationType" value="calculateDeterminant" />
+            <p>Wprowadź macierz kwadratową:</p>
+            <textarea name="a" rows="6"></textarea>
+            <br /><br />
+            <input type="submit" value="Oblicz" />
+        </form>
+        <hr />
+        
+        <form action="MatrixCalculatorServlet" method="POST">
+            <h1>Obliczanie śladu</h1>
+            
+            <input type="hidden" name="operationType" value="calculateTrace" />
+            <p>Wprowadź macierz kwadratową:</p>
+            <textarea name="a" rows="6"></textarea>
+            <br /><br />
+            <input type="submit" value="Oblicz" />
+        </form>
+        <hr />
+        
+        <form action="MatrixCalculatorServlet" method="POST">
+            <h1>Transpozycja</h1>
+            
+            <input type="hidden" name="operationType" value="transposeMatrix" />
+            <p>Wprowadź macierz:</p>
+            <textarea name="a" rows="6"></textarea>
+            <br /><br />
+            <input type="submit" value="Transponuj" />
+        </form>
+        <hr />
+        
+        <form action="MatrixCalculatorServlet" method="POST">
+            <h1>Sprowadzenie do macierzy trójkątnej górnej</h1>
+            
+            <input type="hidden" name="operationType" value="transformToTriangularUpperMatrix" />
+            <p>Wprowadź macierz kwadratową:</p>
+            <textarea name="a" rows="6"></textarea>
+            <br /><br />
+            <input type="submit" value="Sprowadź" />
+        </form>
+        <hr />
+        
+        <form action="MatrixCalculatorServlet" method="POST">
+            <h1>Obliczanie wartości własnych</h1>
+            
+            <input type="hidden" name="operationType" value="calculateEigenValues" />
+            <p>Wprowadź macierz kwadratową:</p>
+            <textarea name="a" rows="6"></textarea>
+            <br /><br />
+            <input type="submit" value="Oblicz" />
+        </form>
+        <hr />
+        
+        <form action="MatrixCalculatorServlet" method="POST">
+            <h1>Dekompozycja LU</h1>
+            
+            <input type="hidden" name="operationType" value="calculateLUDecomposition" />
+            <p>Wprowadź macierz kwadratową:</p>
+            <textarea name="a" rows="6"></textarea>
+            <br /><br />
+            <input type="submit" value="Dekomponuj" />
+        </form>
+        <hr />
+                
+        <form action="MatrixCalculatorServlet" method="POST">
+            <h1>Rozwiązywanie układu równań Ax = b</h1>
+            <p>Wprowadź macierze A i b:</p>
+            
+            <input type="hidden" name="operationType" value="solveLinearEquation" />
+            <textarea name="a" rows="6"></textarea>
+            <textarea name="b" rows="6" cols="2"></textarea>
+            <br /><br />
+            <input type="submit" value="Rozwiąź" />
+        </form>
+        <hr />
+        
+    </body>
+</html>
