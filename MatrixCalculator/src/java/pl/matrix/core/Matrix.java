@@ -38,4 +38,31 @@ public class Matrix {
     public RealMatrix toRealMatrix() {
         return new Array2DRowRealMatrix(data);
     }
+    
+    @Override
+    public boolean equals(Object other) {
+        if(other instanceof Matrix) {
+            Matrix oth = (Matrix)other;
+            double[][] otherData = oth.getData();
+            
+            if(data.length != otherData.length) {
+                return false;
+            }
+            
+            for(int i = 0; i < data.length; i++) {
+                if(data[i].length != otherData[i].length){
+                    return false;
+                }
+                
+                for(int j = 0; j < data[i].length; j++) {
+                    if(Double.compare(data[i][j], otherData[i][j]) != 0) {
+                        return false;
+                    }
+                }
+            }
+            
+            return true;
+        }
+        return false;
+    }
 }
