@@ -7,3 +7,4 @@
 hs_err_pid*
 /MatrixCalculatorClient/build/
 /MatrixCalculator/build/
+/MatrixCalculatorClient/dist/

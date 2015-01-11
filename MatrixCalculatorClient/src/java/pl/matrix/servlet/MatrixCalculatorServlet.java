@@ -25,7 +25,7 @@ import pl.matrix.client.ws.MatrixCalculatorWSImplService;
  */
 @WebServlet(name = "MatrixCalculatorServlet", urlPatterns = {"/MatrixCalculatorServlet"})
 public class MatrixCalculatorServlet extends HttpServlet {
-    @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/kw-lap_8080/MatrixCalculator/MatrixCalculatorWSImplService.wsdl")
+    @WebServiceRef(wsdlLocation = "http://localhost:8080/MatrixCalculator/MatrixCalculatorWSImplService?wsdl")
     private MatrixCalculatorWSImplService service;
     
     private MatrixStringConverter matrixConverter = new MatrixStringConverter();
@@ -57,6 +57,7 @@ public class MatrixCalculatorServlet extends HttpServlet {
                 out.println(operationResult);
             } catch(Exception e) {
                 out.println("Wystąpił błąd! Sprawdź poprawność wprowadzonych danych!");
+                //out.println(e.getMessage());
             } finally {
                 out.println("</body>");
                 out.println("</html>");
@@ -103,7 +104,7 @@ public class MatrixCalculatorServlet extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
-    private Matrix callSampleMatrix(double arg0) {
+    public Matrix callSampleMatrix(double arg0) {
         // Note that the injected javax.xml.ws.Service reference as well as port objects are not thread safe.
         // If the calling of port operations may lead to race condition some synchronization is required.
         pl.matrix.client.ws.MatrixCalculatorWS port = service.getMatrixCalculatorWSImplPort();
