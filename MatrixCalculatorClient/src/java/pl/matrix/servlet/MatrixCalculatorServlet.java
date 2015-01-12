@@ -92,7 +92,7 @@ public class MatrixCalculatorServlet extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException {      
         processRequest(request, response);
     }
 
@@ -179,6 +179,7 @@ public class MatrixCalculatorServlet extends HttpServlet {
     
     private String performOperation(HttpServletRequest request) throws IOException {
         String operation = request.getParameter("operationType");
+        String token = request.getParameter("authToken");
         
         if(operation.equals("addMatrices")) {
             Matrix a = matrixConverter.stringToMatrix(request.getParameter("a"));
@@ -186,17 +187,36 @@ public class MatrixCalculatorServlet extends HttpServlet {
             Matrix c = this.callAddMatrices(a, b);
             
             String result = "<h1>Operacja: dodawanie macierzy</h1>" +
-                    "Rezultat:<br /><br />" + matrixConverter.matrixToString(c);
+                    "Rezultat:<br /><br /> Każdy może przeprowadzić " + matrixConverter.matrixToString(c);
             return result;
         } else if(operation.equals("multiplyMatrices")) {
-            Matrix a = matrixConverter.stringToMatrix(request.getParameter("a"));
-            Matrix b = matrixConverter.stringToMatrix(request.getParameter("b"));
-            Matrix c = this.callMultiplyMatrices(a, b);
-            
-            String result = "<h1>Operacja: mnożenie macierzy</h1>" +
-                    "Rezultat:<br /><br />" + matrixConverter.matrixToString(c);
-            return result;
+            if(token == null || token.isEmpty()) {
+                String result = "<h1>Operacja: dodawanie macierzy</h1>" +
+                    "Rezultat:<br /><br />" + "Brak uprawnień - gość";
+                return result;
+            } else if(token.equals("user:pass") || token.equals("mat:maz")) {
+                Matrix a = matrixConverter.stringToMatrix(request.getParameter("a"));
+                Matrix b = matrixConverter.stringToMatrix(request.getParameter("b"));
+                Matrix c = this.callMultiplyMatrices(a, b);
+                
+                String[] splits = token.split(":");
+
+                String result = "<h1>Operacja: mnożenie macierzy</h1>" +
+                        "Witaj " + splits[0] + ", rezultat:<br /><br />" + matrixConverter.matrixToString(c);
+                return result;
+            } else {
+                String[] splits = token.split(":");
+                String result = "<h1>Operacja: dodawanie macierzy</h1>" +
+                        "Witaj " + splits[0] + ", nie jestes uprawniony:<br /><br />";
+                return result;
+            }
         } else if(operation.equals("multiplyByScalar")) {
+            if(token == null || token.isEmpty()) {
+                String result = "<h1>Operacja: mnożenie macierzy przez skalar</h1>" +
+                    "Rezultat:<br /><br />" + "Brak uprawnień - gość";
+                return result;
+            }
+            
             Matrix a = matrixConverter.stringToMatrix(request.getParameter("a"));
             double b = Double.parseDouble(request.getParameter("b"));
             Matrix c = this.callMultiplyByScalar(a, b);
