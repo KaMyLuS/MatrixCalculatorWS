@@ -76,11 +76,11 @@ public class MatrixCalculator {
         return result;
     }
     
-    public Matrix transformToTriangularUpperMatrix(Matrix a) {
+    public Matrix transformToTriangularUpperMatrix(Matrix a) throws Exception {
         RealMatrix aRealMatrix = a.toRealMatrix();
         
         if(aRealMatrix.getRowDimension() != aRealMatrix.getColumnDimension()) {
-            return null;
+            throw new Exception();
         }
         
         int n = aRealMatrix.getRowDimension();
