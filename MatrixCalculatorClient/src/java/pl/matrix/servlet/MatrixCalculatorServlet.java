@@ -51,6 +51,7 @@ public class MatrixCalculatorServlet extends HttpServlet {
             out.println("<title>Rezultat</title>");            
             out.println("</head>");
             out.println("<body>");
+            out.println("<div>");
             
             try {
                 String operationResult = this.performOperation(request);
@@ -59,6 +60,7 @@ public class MatrixCalculatorServlet extends HttpServlet {
                 out.println("Wystąpił błąd! Sprawdź poprawność wprowadzonych danych!");
                 //out.println(e.getMessage());
             } finally {
+                out.println("</div>");
                 out.println("</body>");
                 out.println("</html>");
             }

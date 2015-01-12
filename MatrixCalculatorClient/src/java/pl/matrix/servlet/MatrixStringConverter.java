@@ -75,4 +75,20 @@ public class MatrixStringConverter {
 
         return builder.toString();
     }
+
+    public Matrix doubleArrayToMatrix(double[][] array) {
+        Matrix result = new Matrix();
+
+        for (int i = 0; i < array.length; i++) {
+            DoubleArray row = new DoubleArray();
+            
+            for(int j = 0; j < array[i].length; j++){
+                row.getItem().add(array[i][j]);
+            }
+            
+            result.getData().add(row);
+        }
+
+        return result;
+    }
 }
