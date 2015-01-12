@@ -51,7 +51,7 @@ public class MatrixCalculatorServlet extends HttpServlet {
             out.println("<title>Rezultat</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<div>");
+            out.println("<div id='result'>");
             
             try {
                 String operationResult = this.performOperation(request);

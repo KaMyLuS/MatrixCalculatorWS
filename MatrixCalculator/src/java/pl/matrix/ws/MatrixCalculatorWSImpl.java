@@ -64,7 +64,7 @@ public class MatrixCalculatorWSImpl implements MatrixCalculatorWS {
     }
 
     @Override
-    public Matrix transformToTriangularUpperMatrix(Matrix a) {
+    public Matrix transformToTriangularUpperMatrix(Matrix a) throws Exception {
         Matrix result = matrixCalculator.transformToTriangularUpperMatrix(a);
         return result;
     }

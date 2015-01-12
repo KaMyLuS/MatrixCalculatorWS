@@ -43,7 +43,7 @@ public interface MatrixCalculatorWS {
     public double calculateDeterminant(Matrix a);
     
     @WebMethod
-    public Matrix transformToTriangularUpperMatrix(Matrix a);
+    public Matrix transformToTriangularUpperMatrix(Matrix a) throws Exception;
     
     @WebMethod
     public List<Matrix> calculateLUDecomposition(Matrix a);
