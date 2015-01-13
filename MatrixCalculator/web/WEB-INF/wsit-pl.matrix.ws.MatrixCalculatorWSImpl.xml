@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+ <definitions 
+ xmlns="http://schemas.xmlsoap.org/wsdl/" 
+ xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+ xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+ xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="MatrixCalculatorWSImplService" targetNamespace="http://ws.matrix.pl/" xmlns:tns="http://ws.matrix.pl/" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:fi="http://java.sun.com/xml/ns/wsit/2006/09/policy/fastinfoset/service" xmlns:tcp="http://java.sun.com/xml/ns/wsit/2006/09/policy/soaptcp/service" 
+ >
+    <message name="addMatrices"/>
+    <message name="addMatricesResponse"/>
+    <message name="multiplyMatrices"/>
+    <message name="multiplyMatricesResponse"/>
+    <message name="multiplyByScalar"/>
+    <message name="multiplyByScalarResponse"/>
+    <message name="transposeMatrix"/>
+    <message name="transposeMatrixResponse"/>
+    <message name="calculateTrace"/>
+    <message name="calculateTraceResponse"/>
+    <message name="calculateEigenValues"/>
+    <message name="calculateEigenValuesResponse"/>
+    <message name="calculateDeterminant"/>
+    <message name="calculateDeterminantResponse"/>
+    <message name="transformToTriangularUpperMatrix"/>
+    <message name="transformToTriangularUpperMatrixResponse"/>
+    <message name="calculateLUDecomposition"/>
+    <message name="calculateLUDecompositionResponse"/>
+    <message name="solveLinearEquation"/>
+    <message name="solveLinearEquationResponse"/>
+    <message name="sampleMatrix"/>
+    <message name="sampleMatrixResponse"/>
+    <portType name="MatrixCalculatorWSImpl">
+        <operation name="addMatrices">
+            <input message="tns:addMatrices"/>
+            <output message="tns:addMatricesResponse"/>
+        </operation>
+        <operation name="multiplyMatrices">
+            <input message="tns:multiplyMatrices"/>
+            <output message="tns:multiplyMatricesResponse"/>
+        </operation>
+        <operation name="multiplyByScalar">
+            <input message="tns:multiplyByScalar"/>
+            <output message="tns:multiplyByScalarResponse"/>
+        </operation>
+        <operation name="transposeMatrix">
+            <input message="tns:transposeMatrix"/>
+            <output message="tns:transposeMatrixResponse"/>
+        </operation>
+        <operation name="calculateTrace">
+            <input message="tns:calculateTrace"/>
+            <output message="tns:calculateTraceResponse"/>
+        </operation>
+        <operation name="calculateEigenValues">
+            <input message="tns:calculateEigenValues"/>
+            <output message="tns:calculateEigenValuesResponse"/>
+        </operation>
+        <operation name="calculateDeterminant">
+            <input message="tns:calculateDeterminant"/>
+            <output message="tns:calculateDeterminantResponse"/>
+        </operation>
+        <operation name="transformToTriangularUpperMatrix">
+            <input message="tns:transformToTriangularUpperMatrix"/>
+            <output message="tns:transformToTriangularUpperMatrixResponse"/>
+        </operation>
+        <operation name="calculateLUDecomposition">
+            <input message="tns:calculateLUDecomposition"/>
+            <output message="tns:calculateLUDecompositionResponse"/>
+        </operation>
+        <operation name="solveLinearEquation">
+            <input message="tns:solveLinearEquation"/>
+            <output message="tns:solveLinearEquationResponse"/>
+        </operation>
+        <operation name="sampleMatrix">
+            <input message="tns:sampleMatrix"/>
+            <output message="tns:sampleMatrixResponse"/>
+        </operation>
+    </portType>
+    <binding name="MatrixCalculatorWSImplPortBinding" type="tns:MatrixCalculatorWSImpl">
+        <wsp:PolicyReference URI="#MatrixCalculatorWSImplPortBindingPolicy"/>
+        <operation name="addMatrices">
+            <input/>
+            <output/>
+        </operation>
+        <operation name="multiplyMatrices">
+            <input/>
+            <output/>
+        </operation>
+        <operation name="multiplyByScalar">
+            <input/>
+            <output/>
+        </operation>
+        <operation name="transposeMatrix">
+            <input/>
+            <output/>
+        </operation>
+        <operation name="calculateTrace">
+            <input/>
+            <output/>
+        </operation>
+        <operation name="calculateEigenValues">
+            <input/>
+            <output/>
+        </operation>
+        <operation name="calculateDeterminant">
+            <input/>
+            <output/>
+        </operation>
+        <operation name="transformToTriangularUpperMatrix">
+            <input/>
+            <output/>
+        </operation>
+        <operation name="calculateLUDecomposition">
+            <input/>
+            <output/>
+        </operation>
+        <operation name="solveLinearEquation">
+            <input/>
+            <output/>
+        </operation>
+        <operation name="sampleMatrix">
+            <input/>
+            <output/>
+        </operation>
+    </binding>
+    <service name="MatrixCalculatorWSImplService">
+        <port name="MatrixCalculatorWSImplPort" binding="tns:MatrixCalculatorWSImplPortBinding"/>
+    </service>
+    <wsp:Policy wsu:Id="MatrixCalculatorWSImplPortBindingPolicy">
+        <wsp:ExactlyOne>
+            <wsp:All/>
+        </wsp:ExactlyOne>
+    </wsp:Policy>
+</definitions>

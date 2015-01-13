@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://kw-lap:8080/MatrixCalculator/MatrixCalculatorWSImplService?wsdl" uri="src/conf/xml-resources/web-service-references/MatrixCalculatorWSImplService/wsdl/kw-lap_8080/MatrixCalculator/MatrixCalculatorWSImplService.wsdl"/>
+    <system systemId="http://kw-lap:8080/MatrixCalculator/MatrixCalculatorWSImplService?xsd=1" uri="src/conf/xml-resources/web-service-references/MatrixCalculatorWSImplService/wsdl/kw-lap_8080/MatrixCalculator/MatrixCalculatorWSImplService.xsd_1.xsd"/>
+    <system systemId="http://kw-lap:8080/MatrixCalculator/MatrixCalculatorWSImplService?xsd=2" uri="src/conf/xml-resources/web-service-references/MatrixCalculatorWSImplService/wsdl/kw-lap_8080/MatrixCalculator/MatrixCalculatorWSImplService.xsd_2.xsd"/>
+</catalog>
